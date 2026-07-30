@@ -29,7 +29,7 @@ export const WarhammerDocumentMixin = (cls) => class extends cls
     async _preDelete(options, user)
     {
         await super._preDelete(options, user);
-        await this.system._preDelete(options, user);
+        await this.system._preDelete?.(options, user);
     }
 
     async _onUpdate(data, options, user)

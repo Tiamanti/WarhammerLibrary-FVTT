@@ -271,7 +271,7 @@ export default class WarhammerRollDialogV2 extends HandlebarsApplicationMixin(Ap
      * gets checked after the dialog renders, and if true, submits the dialog.
      * @param {Event|null} ev Triggering event
      */
-    static submit(ev) 
+    static async submit(ev) 
     {
         ev?.preventDefault();
         ev?.stopPropagation();
@@ -288,7 +288,7 @@ export default class WarhammerRollDialogV2 extends HandlebarsApplicationMixin(Ap
         {
             if (script.isActive)
             {
-                script.submission(this);
+                await script.submission(this);
             }
         }
 
@@ -338,7 +338,7 @@ export default class WarhammerRollDialogV2 extends HandlebarsApplicationMixin(Ap
         {
             if (script.isActive)
             {
-                script.submission(this);
+                await script.submission(this);
             }
         }
         return submitData;

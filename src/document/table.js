@@ -13,7 +13,7 @@ export class WarhammerRollTable extends RollTable
         {
             let description = inline ? r.description.replace(/^<[p>]+>|<[^>]+p>$/g, '') : r.description; // Remove opening and closing <p> tags if inline
             return (r.description && r.name) 
-                ? `<p><strong>${r.name}</strong>${separator} ${description.replace("<p>", "")}</p>`.trim()
+                ? `<p><strong>${r.name}</strong>${separator} ${description.replace("<p>", "")}`.trim()
                 : r.name || description;
         };
 

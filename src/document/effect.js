@@ -471,6 +471,7 @@ export default class WarhammerActiveEffect extends CONFIG.ActiveEffect.documentC
         else if (effect.system.transferData.type == "zone" && effect.system.transferData.zone.type == "follow")
         {
             effect.system.transferData.zone.following = this.actor.getActiveTokens()[0]?.document?.uuid;
+            effect.system.sourceData.actor = this.actor.uuid;
             effect.system.transferData.zone.transferred = false;
         }
 
@@ -841,6 +842,10 @@ export default class WarhammerActiveEffect extends CONFIG.ActiveEffect.documentC
 
     get sourceActor() 
     {
+        if (this.system.sourceData.actor && fromUuidSync(this.system.sourceData.actor))
+        {
+            return fromUuidSync(this.system.sourceData.actor);
+        }
         if (this.sourceTest && !foundry.utils.isEmpty(this.sourceTest))
         {
             return CONFIG.ChatMessage.documentClass.getSpeakerActor(this.sourceTest.context.speaker);   

@@ -35,7 +35,7 @@ export default class WarhammerScript
         try 
         {
             let script = this._handleScriptId(this.script);
-            let scriptFunction =this.async ? Object.getPrototypeOf(async function () { }).constructor : Function;
+            let scriptFunction = this.async ? Object.getPrototypeOf(async function () { }).constructor : Function;
             log("Running Script > " + this.Label);
             return (new scriptFunction("args",`${CONFIG.debug.scripts ? "debugger;" : ""}` + script)).bind(this.context)(args);
         }
@@ -91,17 +91,18 @@ export default class WarhammerScript
     {
         if (this.options?.submissionScript)
         {
-            return this._runSubscript(args, this.options?.submissionScript, "Submission");
+            return this._runSubscript(args, this.options?.submissionScript, "Submission", true);
         }
     }
 
-    _runSubscript(args, script, name)
+    _runSubscript(args, script, name, async=false)
     {
         try 
         {
             script = this._handleScriptId(script);
             log("Running Script > " + this.Label);
-            return new Function("args",`${CONFIG.debug.scripts ? "debugger;" : ""}` + script).bind(this.context)(args);
+            let scriptFunction = async ? Object.getPrototypeOf(async function () { }).constructor : Function;
+            return new scriptFunction("args",`${CONFIG.debug.scripts ? "debugger;" : ""}` + script).bind(this.context)(args);
         }
         catch(e)
         {

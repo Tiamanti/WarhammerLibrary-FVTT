@@ -114,6 +114,7 @@ export class WarhammerActiveEffectModel extends foundry.abstract.DataModel
             zone : new fields.StringField(),
             area : new fields.StringField(),
             item: new fields.StringField(),
+            actor: new fields.StringField(),
             test: new fields.ObjectField(),
         });
 
