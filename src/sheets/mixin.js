@@ -592,8 +592,7 @@ const WarhammerSheetMixinV2 = (cls) => class extends cls
         }
         else 
         {
-            // Not very good but i'm afraid of what will break if I change it
-            value = parseInt(ev.target.value) || ev.target.value;
+            value = isNaN(ev.target.value) ? ev.target.value : parseInt(ev.target.value);
         }
 
         if (arr)

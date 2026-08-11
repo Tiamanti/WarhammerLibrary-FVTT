@@ -1,4 +1,5 @@
 import WarhammerScript from "../system/script";
+import { systemConfig } from "../util/utility";
 import { AvoidTestModel } from "./embedded/avoidTest";
 
 
@@ -178,6 +179,27 @@ export class WarhammerActiveEffectModel extends foundry.abstract.DataModel
         {
             return this.itemTargetData.ids.map(i => this.parent.actor.items.get(i)).map(i => i);;
         }
+    }
+
+    get typeDisplay()
+    {
+        let type = systemConfig().transferTypes[this.transferData.type];
+        if (this.transferData.type == "document")
+        {
+            type = game.i18n.format("WH.TransferTypeOwnerDisplay", {type: this.transferData.documentType});
+        }
+        else if (this.transferData.type == "target")
+        {
+            if (this.transferData.selfOnly)
+            {
+                type += ` (${game.i18n.localize("WH.TransferTypeSelfDisplay")})`;
+            }
+            else
+            {
+                type += ` (${this.transferData.documentType})`;
+            }
+        }
+        return type;
     }
 
     migrateData()

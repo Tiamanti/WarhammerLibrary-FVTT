@@ -372,6 +372,8 @@
             "Target": "Target",
             "Zone": "Zone"
         },
+        "TransferTypeOwnerDisplay" : "Owning {type}",
+        "TransferTypeSelfDisplay" : "Self",
         "Trigger": {
             "ApplyDamage": "Apply Damage",
             "CreateCondition": "Create Condition",
