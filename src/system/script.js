@@ -131,6 +131,16 @@ export default class WarhammerScript
         return foundry.applications.api.Dialog[type](this.dialogConfig(content, config));
     }
 
+    async roll(formula, messageData={})
+    {
+        let roll = await new Roll(formula).roll();
+        if (messageData != false)
+        {
+            roll.toMessage(this.getChatData(messageData));
+        }
+        return roll.total;
+    }
+
     scriptNotification(...args)
     {
         return this.notification(...args);
