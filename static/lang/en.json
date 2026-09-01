@@ -76,6 +76,13 @@
                 "PrintCommand": "<p>Below is the list of chat commands and available parameters. You can assign some value to a parameter by using <span style='font-family:monospaced'>=</span>. If a command has a default argument, it does not need to be assigned, but must be the first value provided.</p><p>e.g. <span style='font-family:monospaced'>{prefix}command 100 someArg=value1 anotherArg=value2</span></p>"
             }
         },
+        "CharacterCreation" : {
+            "Title" : "Character Creation",
+            "Stage" : "Stage",
+            "Error" : {
+                "UncompletedDependencies" : "You must complete {dependencies} before starting {stage}"
+            }
+        },
         "Choice": {
             "AND": "AND",
             "ChoiceDialog": "Choice Dialog",

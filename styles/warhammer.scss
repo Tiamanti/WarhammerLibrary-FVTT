@@ -15,6 +15,7 @@
 @use "./apps/module-initializer";
 @use "./apps/chat";
 @use "./apps/drag-dialog";
+@use "./apps/character-creation"; 
 
 .warhammer {
   --tab-color : var(--color-cool-3);

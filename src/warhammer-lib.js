@@ -66,6 +66,8 @@ import DraggableApp from "./apps/draggable";
 import ContainerizedApp from "./apps/containerized";
 import { WHFormApplication } from "./apps/form-application";
 import DragDialog from "./apps/drag-dialog.js";
+import { StagedCharacterCreation } from "./apps/chargen/staged.js";
+import { BaseCharacterCreationStage } from "./apps/chargen/stage.js";
 hooks();
 overrides();
 
@@ -131,7 +133,9 @@ warhammer.apps = {
     CompendiumBrowser,
     WHFormApplication,
     DraggableApp,
-    ContainerizedApp
+    ContainerizedApp,
+    StagedCharacterCreation,
+    BaseCharacterCreationStage
 };
 
 warhammer.models = {

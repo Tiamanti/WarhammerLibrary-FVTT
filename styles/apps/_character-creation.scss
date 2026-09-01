@@ -1,0 +1,28 @@
+.warhammer.character-creation.staged {
+    background: red;
+
+    --max-width: 1600px;
+    --ui-scale: 1;
+    --gap: 32px;
+    --icon-size: 64px;
+    
+    position: fixed;
+    width: 100vw; // calc((100vw / var(--ui-scale)) + 1px);
+    height: 100vh; // calc((100vh / var(--ui-scale)) + 1px);
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-start;
+    // align-items: center;
+    background-size: cover;
+    // transform-origin: top left;
+    // transform: scale(var(--ui-scale));
+    z-index: calc(var(--z-index-window) + 1);
+
+
+    .close {
+        position: absolute;
+        font-size: 2rem;
+        top: 1rem;
+        right: 1rem;
+    }
+}
